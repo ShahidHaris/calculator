@@ -1,0 +1,83 @@
+/**** Colors 
+#EEEEEE #00ADB5 #393E46 #222831
+*****/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(to right, #f7ec09, #3ec70b, #3b44f6);
+  min-height: 80vh;
+  margin-top: 100px;
+  display: grid;
+  place-content: center;
+}
+
+.calculator {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 60px);
+  grid-template-rows: minmax(100px, auto) repeat(5, 60px);
+  background: #CFFFDC;
+  padding: 15px 10px;
+  border-radius: 15px;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
+}
+
+.span {
+  grid-column: span 2;
+}
+
+.console {
+  grid-column: 1 / -1;
+  background: #548dff94;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+button {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: #04ff0086;
+}
+
+.func {
+  background: #ff8c0086;
+}
+
+button:hover {
+  background: #06FF00;
+}
+
+.func:hover {
+  background: #FF8E00;
+}
+
+.main-console {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #393E46;
+}
+
+.result-console {
+  font-size: 1rem;
+  color: #222831;
+}
