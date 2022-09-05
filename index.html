@@ -7,10 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculator</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
   <script src="script.js" defer></script>
 </head>
 
 <body>
+  <h1>Calculator</h1>
   <div class="calculator">
     <div class="console">
       <div class="result-console" data-result-console></div>
@@ -35,6 +38,18 @@
     <button data-number>.</button>
     <button data-equals class="func">=</button>
   </div>
+
+  <footer class="footer">
+    <p>
+      Copyright ©
+      <script>
+        document.write(new Date().getFullYear())
+      </script>
+      ShahidHaris
+    </p>
+    <a href="https://github.com/ShahidHaris" target="_blank">
+      <i class="fab fa-github"></i></a>
+  </footer>
 </body>
 
 </html>

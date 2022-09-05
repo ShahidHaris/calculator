@@ -14,11 +14,21 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to right, #f7ec09, #3ec70b, #3b44f6);
+  background: #d6cab0;
   min-height: 80vh;
   margin-top: 100px;
   display: grid;
   place-content: center;
+}
+
+h1 {
+  text-align: center;
+  color: #282726;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 1px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-bottom: 50px;
 }
 
 .calculator {
@@ -27,7 +37,7 @@ body {
   justify-content: center;
   grid-template-columns: repeat(4, 60px);
   grid-template-rows: minmax(100px, auto) repeat(5, 60px);
-  background: #CFFFDC;
+  background: #86817c; 
   padding: 15px 10px;
   border-radius: 15px;
   grid-row-gap: 5px;
@@ -40,7 +50,7 @@ body {
 
 .console {
   grid-column: 1 / -1;
-  background: #548dff94;
+  background: #282726;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -56,29 +66,57 @@ button {
   outline: none;
   border: none;
   border-radius: 10px;
-  background-color: #04ff0086;
+  background-color: #54504c;
+  color: #fff;
+  font-weight: 700;
 }
 
 .func {
-  background: #f7eb09;
+  background: #d6cab0;
+  color: #000;
 }
 
 button:hover {
-  background: #8cff00;
+  background: #282726;
 }
 
 .func:hover {
-  background: #fad100;
+  background: #f8f4e9;
 }
 
 .main-console {
   align-self: flex-end;
   font-size: 2rem;
   font-weight: 800;
-  color: #393E46;
+  color: #d6cab0;
 }
 
 .result-console {
   font-size: 1rem;
-  color: #222831;
+  font-weight: 800;
+  color: #fff;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  font-size: 20px;
+  color: #000;
+  font-weight: 300;
+}
+
+.fa-github {
+  color: #000;
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
 }

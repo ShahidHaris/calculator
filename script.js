@@ -29,7 +29,7 @@ operationKeys.forEach(key => {
     })
 })
 
-clearKey.addEventListener('click', clear)
+clearKey.addEventListener('click', cleared)
 deleteKey.addEventListener('click', deleteEntry)
 equalsKey.addEventListener('click', computation);
 
@@ -46,7 +46,7 @@ function computation() {
     }
 }
 
-function clear() {
+function cleared() {
     mainConsole.textContent = '';
     resultConsole.textContent = '';
     console2 = '';
@@ -54,8 +54,7 @@ function clear() {
 
 function deleteEntry() {
     mainConsole.innerText = mainConsole.innerText.toString().slice(0, -1);
-    console = '';
-    if (clicked === '.' && mainConsole.innerText.includes('.')) return;
+    console = mainConsole.innerText;
 }
 
 function operate() {
@@ -79,7 +78,6 @@ function operate() {
     resultConsole.innerText = '';
 }
 
-// Set Up Keydown
 window.addEventListener('keydown', (e) => {
     if (e.key == '0' || e.key == '1' || e.key == '2' ||
         e.key == '3' || e.key == '4' || e.key == '5' ||
