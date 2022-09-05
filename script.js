@@ -18,13 +18,6 @@ numberKeys.forEach(key => {
     });
 });
 
-function updateDisplay(clicked) {
-    if (clicked === '.' && mainConsole.innerText.includes('.')) return;
-    console += clicked;
-    mainConsole.innerText = console;
-}
-
-
 operationKeys.forEach(key => {
     key.addEventListener('click', (e) => {
         computation()
@@ -36,16 +29,22 @@ operationKeys.forEach(key => {
     })
 })
 
+clearKey.addEventListener('click', clear)
+deleteKey.addEventListener('click', deleteEntry)
+equalsKey.addEventListener('click', computation);
+
+function updateDisplay(clicked) {
+    if (clicked === '.' && mainConsole.innerText.includes('.')) return;
+    console += clicked;
+    mainConsole.innerText = console;
+}
+
 function computation() {
     if (mainConsole.innerText === '') return;
     if (resultConsole.innerText && mainConsole.innerText && operation) {
         operate();
     }
 }
-
-clearKey.addEventListener('click', clear)
-deleteKey.addEventListener('click', deleteEntry)
-equalsKey.addEventListener('click', computation);
 
 function clear() {
     mainConsole.textContent = '';
@@ -59,33 +58,17 @@ function deleteEntry() {
     if (clicked === '.' && mainConsole.innerText.includes('.')) return;
 }
 
-function add(a, b) {
-    return a + b;
-};
-
-function subtract(a, b) {
-    return a - b;
-};
-
-function multiply(a, b) {
-    return a * b;
-};
-
-function divide(a, b) {
-    return a / b;
-};
-
 function operate() {
     let a = parseFloat(resultConsole.innerText);
     let b = parseFloat(mainConsole.innerText);
     if (operation == '+') {
-        result = add(a, b)
+        result = a + b;
     } else if (operation == '-') {
-        result = subtract(a, b)
+        result = a - b;
     } else if (operation == 'x') {
-        result = multiply(a, b)
+        result = a * b;
     } else if (operation == '÷') {
-        result = divide(a, b)
+        result = a / b;
     } else {
         return;
     }
