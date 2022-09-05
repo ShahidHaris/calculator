@@ -6,53 +6,58 @@ const equalsKey = document.querySelector('[data-equals]');
 const mainConsole = document.querySelector('[data-main-console]');
 const resultConsole = document.querySelector('[data-result-console]');
 
+// Initials
+let console = '';
+let operation = '';
+let result = null;
 
-
-let func;
-let num;
 
 numberKeys.forEach(key => {
-    key.addEventListener('click', () => {
-        mainConsole.textContent = key.textContent;
-        //mainConsole.append(num);
+    key.addEventListener('click', (e) => {
+        updateDisplay(e.target.innerText);
+    });
+});
+
+function updateDisplay(clicked) {
+    if (clicked === '.' && mainConsole.innerText.includes('.')) return;
+    console += clicked;
+    mainConsole.innerText = console;
+}
+
+
+functionKeys.forEach(key => {
+    key.addEventListener('click', (e) => {
+        computation()
+
+        resultConsole.innerText = mainConsole.innerText;
+        operation = e.target.innerText;
+        mainConsole.innerText = '';
+        console = '';
     })
 })
 
-functionKeys.forEach(key => {
-    key.addEventListener('click', () => {
-        let console = mainConsole.textContent;
-        var lastChar = console[console.length - 1];
-        if (console == '') {
-            return;
-        } else if (lastChar == '+' || lastChar == '-' || lastChar == 'x' || lastChar == '÷') {
-            return;
-        } else {
-            func = num + key.textContent;
-            mainConsole.append(func);
-        }
-        resultConsole.textContent = func;
-    })
-})
+function computation() {
+    if (mainConsole.innerText === '') return;
+    if (resultConsole.innerText && mainConsole.innerText && operation) {
+        operate();
+    }
+}
 
 clearKey.addEventListener('click', clear)
 deleteKey.addEventListener('click', deleteEntry)
+equalsKey.addEventListener('click', computation);
 
 function clear() {
     mainConsole.textContent = '';
     resultConsole.textContent = '';
+    console2 = '';
 }
 
 function deleteEntry() {
-    let deleted = mainConsole.textContent;
-    deleted.substring(0, deleted.length - 1);
+    mainConsole.innerText = mainConsole.innerText.toString().slice(0, -1);
+    console = '';
+    if (clicked === '.' && mainConsole.innerText.includes('.')) return;
 }
-
-
-
-
-
-
-
 
 function add(a, b) {
     return a + b;
@@ -70,16 +75,25 @@ function divide(a, b) {
     return a / b;
 };
 
-function operate(operator, a, b) {
-    if (operator == '+') {
-        return add(a, b)
-    } else if (operator == '-') {
-        return subtract(a, b)
-    } else if (operator == '*') {
-        return multiply(a, b)
-    } else if (operator == '÷') {
-        return divide(a, b)
+function operate() {
+    let a = parseFloat(resultConsole.innerText);
+    let b = parseFloat(mainConsole.innerText);
+    if (operation == '+') {
+        result = add(a, b)
+    } else if (operation == '-') {
+        result = subtract(a, b)
+    } else if (operation == '*') {
+        result = multiply(a, b)
+    } else if (operation == '÷') {
+        result = divide(a, b)
     } else {
         return;
     }
+
+    if (result == Infinity) result = 0;
+    mainConsole.innerText = Math.round(result * 10) / 10;
+    operation = undefined;
+    resultConsole.innerText = '';
 }
+
+// Set Up Keydown

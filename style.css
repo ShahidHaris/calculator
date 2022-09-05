@@ -60,18 +60,19 @@ button {
 }
 
 .func {
-  background: #ff8c0086;
+  background: #f7eb09;
 }
 
 button:hover {
-  background: #06FF00;
+  background: #8cff00;
 }
 
 .func:hover {
-  background: #FF8E00;
+  background: #fad100;
 }
 
 .main-console {
+  align-self: flex-end;
   font-size: 2rem;
   font-weight: 800;
   color: #393E46;
